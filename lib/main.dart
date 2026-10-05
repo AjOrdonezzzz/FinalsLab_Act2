@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'MainScreen.dart';
-import 'package:hive_flutter/hive_flutter.dart'; 
+import 'package:hive_flutter/hive_flutter.dart';
 import 'task.dart';
 import 'boxes.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -24,10 +25,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-      ),
+      theme: ThemeData(),
       home: const MainScreen(),
     );
   }
 }
-
