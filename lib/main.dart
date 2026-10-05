@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'MainScreen.dart';
-import 'package:hive_flutter/hive_flutter.dart'; 
+import 'package:hive_flutter/hive_flutter.dart';
 import 'task.dart';
 import 'boxes.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,15 +20,21 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Task Manager',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFB9B0F0), // soft lavender
+          brightness: Brightness.light,
+        ),
+        scaffoldBackgroundColor: Pastel.bg,
+        fontFamily: 'Roboto',
       ),
       home: const MainScreen(),
     );
   }
 }
-

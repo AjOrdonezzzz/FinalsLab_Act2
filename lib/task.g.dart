@@ -24,13 +24,15 @@ class TaskAdapter extends TypeAdapter<Task> {
       priority: fields[4] as String,
       category: fields[5] as String,
       isCompleted: fields[6] as bool,
+      dueTime: fields[7] == null ? '' : fields[7] as String,
+      assignee: fields[8] == null ? '' : fields[8] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Task obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -44,7 +46,11 @@ class TaskAdapter extends TypeAdapter<Task> {
       ..writeByte(5)
       ..write(obj.category)
       ..writeByte(6)
-      ..write(obj.isCompleted);
+      ..write(obj.isCompleted)
+      ..writeByte(7)
+      ..write(obj.dueTime)
+      ..writeByte(8)
+      ..write(obj.assignee);
   }
 
   @override
